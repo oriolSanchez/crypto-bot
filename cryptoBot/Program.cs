@@ -8,11 +8,14 @@ namespace cryptoBot
 {
     public class Program
     {
-        static int Main()
+        static void Main()
         {
             BitcoinPriceChecker priceChecker = new BitcoinPriceChecker();
-            priceChecker.checkBitcoinPrice("https://api.coinbase.com/v2/");
-            return 0;
+            string apiUrl = "https://api.coinbase.com/v2/";
+            priceChecker.checkBitcoinPriceNow(apiUrl);
+
+            BitcoinHistoric historicPriceChecker = new BitcoinHistoric();
+            historicPriceChecker.CheckBitcoinPriceHistory(apiUrl);
         }
     }
 }
